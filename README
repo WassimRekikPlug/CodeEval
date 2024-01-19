@@ -1,0 +1,159 @@
+# Task Management Application
+
+The Task Management Application is a web application designed to help users organize and manage their tasks effectively. It provides a user-friendly interface for creating, updating, and deleting tasks, with additional features like task filtering and drag-and-drop reordering.
+
+## Technologies Used
+
+- **Frontend:**
+  - React (v18.2.0)
+  - Tailwind CSS (v3.4.1)
+
+- **Backend:**
+  - Node.js (v20.10.4)
+  - Express.js (v4.16.1)
+  - MongoDB (v7.0)
+
+
+## Technologies Used
+
+- **Frontend:**
+  - React (v17.0.2)
+  - Tailwind CSS (v2.2.19)
+
+- **Backend:**
+  - Node.js (v14.17.6)
+  - Express.js (v4.17.1)
+  - MongoDB (v4.4.9)
+
+## Folder Structure
+
+task-management-app/
+|-- frontend/
+| |-- public/
+| |-- src/
+| |-- ...
+|-- backend/
+| |-- controllers/
+| |-- routes/
+| |-- models/
+| |-- ...
+|-- ...
+
+## Launch App
+NodeJS:
+> cd server 
+> npm start
+ReactJS:
+> cd client
+> npm run dev
+
+## Frontend Logic
+
+### Components
+- **TaskList:**
+  - Displays a list of tasks.
+  - Allows task filtering and reordering.
+
+- **TaskCard:**
+  - Represents an individual task.
+  - Provides options to edit, delete, and update the task status.
+
+- **AddTaskForm:**
+  - Allows users to add new tasks.
+  - Validates task input.
+
+### State Management
+- React `useState` for managing local component state.
+- Global state management with Redux (optional).
+
+### Styling
+- Utilizes Tailwind CSS for a responsive and clean UI.
+
+## Backend Logic
+
+### Controllers
+- `createTask`: Creates a new task.
+- `getAllTasks`: Retrieves all tasks.
+- `getTaskById`: Retrieves a specific task by ID.
+- `updateTaskById`: Updates a task by ID.
+- `deleteTaskById`: Deletes a task by ID.
+- `getTasksByStatus`: Retrieves tasks filtered by status.
+- `getTasksByDeadline`: Retrieves tasks filtered by deadline.
+- `searchTasks`: Retrieves tasks filtered by keyword.
+- `updateOrder`: Updates the order of tasks.
+- `updateStatus`: Updates the status of a task.
+
+### Routes
+- `POST /api/tasks`: Creates a new task.
+- `GET /api/tasks`: Retrieves all tasks.
+- `GET /api/tasks/:id`: Retrieves a specific task by ID.
+- `PUT /api/tasks/:id`: Updates a task by ID.
+- `DELETE /api/tasks/:id`: Deletes a task by ID.
+- `GET /api/tasks/status/:status`: Retrieves tasks filtered by status.
+- `GET /api/tasks/deadline/:date`: Retrieves tasks filtered by deadline.
+- `GET /api/tasks/search/:keyword`: Retrieves tasks filtered by keyword.
+- `PUT /api/tasks/updateOrder`: Updates the order of tasks.
+- `PUT /api/tasks/updateStatus`: Updates the status of a task.
+
+### Database Schema
+- `Task` model with fields: `title`, `description`, `date`, `status`, `order`.
+
+## API Documentation
+
+### `POST /api/tasks`
+Creates a new task.
+
+#### Request:
+- Body: `{ "title": "Task Title", "description": "Task Description", "date": "2024-01-01", "status": "TODO" }`
+
+#### Response:
+- Status: `201 Created`
+- Body: `{ "_id": "uniqueTaskId", "title": "Task Title", "description": "Task Description", "date": "2024-01-01", "status": "TODO", "order": 1 }`
+
+### `GET /api/tasks`
+Retrieves all tasks.
+
+#### Response:
+- Status: `200 OK`
+- Body: `[{"_id": "taskId1", "title": "Task 1", "description": "Description 1", "date": "2024-01-01", "status": "TODO", "order": 1}, ...]`
+
+... (Continue documenting other endpoints)
+
+## Deployment Instructions
+
+### Frontend
+1. Build the React App: `npm run build`
+2. Serve the Build: Use a static file server like `serve` or `nginx` to serve the build files.
+
+### Backend
+1. Environment Variables: Set necessary environment variables (e.g., MongoDB connection string, API keys).
+2. Install Dependencies: Run `npm install` to install backend dependencies.
+3. Start the Server: Run `npm start` or use a process manager like `pm2` or `forever` to start the Node.js server.
+
+### Database
+1. MongoDB Setup: Set up a MongoDB instance and provide the connection string in the backend environment variables.
+    - create file .env have
+        MONGO_URI = "server"
+
+... 
+
+## Testing
+cd server
+npm test
+
+
+
+## LOGGER
+Request and error will exist on /server/logs/combined.log and error.log
+
+## Conclusion
+
+The Task Management Application is designed to streamline task organization and enhance productivity. With a clean and intuitive user interface, users can efficiently manage their tasks, prioritize work, and stay organized. The combination of a robust backend, powered by Node.js and MongoDB, and a responsive frontend built with React and Tailwind CSS, ensures a seamless and enjoyable user experience.
+
+Whether you're an individual user seeking a personal task management solution or a developer looking to understand and contribute to the project, this application provides a solid foundation. The documentation covers essential aspects such as installation, usage, testing, and deployment, making it easy for anyone to get started.
+
+We encourage users and contributors to explore the application, provide feedback, and contribute to its improvement. By combining user feedback and continuous development efforts, we aim to enhance the application's features, address potential issues, and provide a reliable task management solution for various use cases.
+
+Thank you for your interest and involvement in the Task Management Application. We look forward to your contributions and feedback as we strive to create a valuable and user-friendly solution for task management needs.
+
+

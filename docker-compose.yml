@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  # Node.js App
+  node-app:
+    build:
+      context: ./server
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_DB_URL: mongodb://mongo-container:27017/TASKER
+    networks:
+      - my-network
+
+  # MongoDB
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+
+  # React App
+  react-app:
+    build:
+      context: ./client
+    ports:
+      - "80:80"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
